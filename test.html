@@ -1,0 +1,19 @@
+<script>
+    function init() {
+        const protData = {
+            "org.w3.clearkey": {
+                "clearkeys": {
+                    "3f726fd5cbbf5944437a4dbfab431b10": "376b009796e4ad50ea8f68d796676692"
+                }
+            }
+        };
+        var video,
+            player,
+            url = "https://linearjitp-playback.astro.com.my/dash-wv/linear/1004/default_ott.mpd";
+
+        video = document.querySelector("video");
+        player = dashjs.MediaPlayer().create();
+        player.initialize(video, url, true);
+        player.setProtectionData(protData);
+    }
+</script>
