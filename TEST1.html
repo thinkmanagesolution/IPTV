@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
+</head>
+<body>
+<div id="player"></div>
+<script type="text/javascript">
+    var conf = {
+        key: "YOUR-PLAYER-LICENSE-KEY-HERE",
+        source: {
+            dash: "https://linear-playback.astro.com.my/linear-livewvdaf/2402/default_ott.mpd",
+            drm: {
+                clearkey: [{
+                    key: 'aa2c653f0c05567ae283c4a3271a9810',
+                    kid: '0a80e20c568e88e53c7087c1c6493318' //optional
+                }]
+            }
+        }
+    };
+    var player = bitmovin.player("player");
+    player.setup(conf).then(function (value) {
+        console.log("Successfully created bitmovin player instance");
+    }, function (reason) {
+        console.log("Error while creating bitmovin player instance");
+    });
+</script>
+</body>
+</html>
